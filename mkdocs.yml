@@ -1,0 +1,38 @@
+﻿site_name: Telo
+site_description: Onboarding y diseño técnico de Telo
+site_url: !ENV [SITE_URL, '']
+repo_url: !ENV [REPO_URL, '']
+repo_name: !ENV [REPO_NAME, '']
+docs_dir: docs
+
+nav:
+  - Inicio y onboarding: index.md
+  - Alcance y diseño V1: alcance-v1.md
+  - Base de datos en Supabase: supabase.md
+  - Publicar documentación: publicar-documentacion.md
+
+theme:
+  name: material
+  language: es
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: es
