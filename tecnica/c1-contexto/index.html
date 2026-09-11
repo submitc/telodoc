@@ -6,30 +6,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Onboarding y diseño técnico de Telo">
+        <meta name="description" content="Alcance, requerimientos y arquitectura de Telo">
       
       
       
-        <link rel="canonical" href="https://submitc.github.io/telodoc/publicar-documentacion/">
+        <link rel="canonical" href="https://submitc.github.io/telodoc/tecnica/c1-contexto/">
       
       
-        <link rel="prev" href="../supabase/">
+        <link rel="prev" href="../..">
       
+      
+        <link rel="next" href="../c2-contenedores/">
       
       
         
       
       
-      <link rel="icon" href="../assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
-        <title>Publicar documentación - Telo</title>
+        <title>C1 · Contexto del sistema - Telo</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
       
 
@@ -48,7 +50,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -66,7 +68,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#publicar-documentacion" class="md-skip">
+        <a href="#c1-contexto-del-sistema" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -82,7 +84,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Cabecera">
-    <a href=".." title="Telo" class="md-header__button md-logo" aria-label="Telo" data-md-component="logo">
+    <a href="../.." title="Telo" class="md-header__button md-logo" aria-label="Telo" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -102,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Publicar documentación
+              C1 · Contexto del sistema
             
           </span>
         </div>
@@ -192,7 +194,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Telo" class="md-nav__button md-logo" aria-label="Telo" data-md-component="logo">
+    <a href="../.." title="Telo" class="md-nav__button md-logo" aria-label="Telo" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -222,14 +224,14 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
+      <a href="../.." class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Inicio y onboarding
+    Inicio
   
 
     
@@ -246,17 +248,30 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../alcance-v1/" class="md-nav__link">
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
         
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
   
   
   <span class="md-ellipsis">
     
   
-    Alcance y diseño V1
+    Documentación técnica
   
 
     
@@ -264,40 +279,22 @@
   
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../supabase/" class="md-nav__link">
+            <span class="md-nav__icon md-icon"></span>
+          </label>
         
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
   
-  
-  <span class="md-ellipsis">
-    
-  
-    Base de datos en Supabase
-  
-
-    
-  </span>
-  
+    Documentación técnica
   
 
-      </a>
-    </li>
-  
-
-    
-      
-      
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
   
   
     
@@ -312,24 +309,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Publicar documentación
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -337,7 +316,7 @@
   <span class="md-ellipsis">
     
   
-    Publicar documentación
+    C1 · Contexto del sistema
   
 
     
@@ -347,68 +326,69 @@
 
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+              
+            
+              
+                
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="../c2-contenedores/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
+    C2 · Contenedores
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#configurar-github-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configurar GitHub Pages
-      
-    </span>
-  </a>
+
+    
+  </span>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validar-localmente" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Validar localmente
-      
-    </span>
-  </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mantener-la-documentacion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mantener la documentación
-      
-    </span>
-  </a>
+
+      </a>
+    </li>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Referencias
-      
-    </span>
-  </a>
+
+              
+            
+              
+                
   
-</li>
-      
-    </ul>
   
-</nav>
+  
+  
+    <li class="md-nav__item">
+      <a href="../dominio-v1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diseño del dominio y datos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
       
     </li>
   
@@ -434,58 +414,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Tabla de contenidos
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#configurar-github-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configurar GitHub Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#validar-localmente" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Validar localmente
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mantener-la-documentacion" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Mantener la documentación
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#referencias" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Referencias
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -504,39 +432,23 @@
   
 
 
-<h1 id="publicar-documentacion">Publicar documentación<a class="headerlink" href="#publicar-documentacion" title="Permanent link">&para;</a></h1>
-<p>La documentación se construye con MkDocs Material. GitHub Pages publica únicamente el sitio estático generado desde <code>docs/</code>; el workflow no despliega la aplicación Spring Boot ni conecta a la base de datos.</p>
-<h2 id="configurar-github-pages">Configurar GitHub Pages<a class="headerlink" href="#configurar-github-pages" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Subir el proyecto a su repositorio en GitHub, con la rama <code>main</code>.</li>
-<li>Ir a <strong>Settings → Pages → Build and deployment</strong>.</li>
-<li>En <strong>Source</strong>, seleccionar <strong>GitHub Actions</strong>.</li>
-<li>En <strong>Actions</strong>, abrir <strong>Deploy MkDocs to GitHub Pages</strong> y ejecutar <strong>Run workflow</strong> sobre <code>main</code>, o subir un cambio de documentación a esa rama.</li>
-<li>Consultar la URL publicada en el entorno <code>github-pages</code> del despliegue.</li>
-</ol>
-<p>El workflow calcula las URLs a partir del propietario y nombre del repositorio. Está preparado para una página de proyecto con formato <code>https://&lt;propietario&gt;.github.io/&lt;repositorio&gt;/</code>. Un dominio propio o un repositorio especial <code>&lt;propietario&gt;.github.io</code> requiere ajustar <code>SITE_URL</code>.</p>
-<p>No se necesita una rama <code>gh-pages</code> ni un token personal: se utilizan los permisos de GitHub Actions y su despliegue oficial de Pages. Los pull requests solo validan; publican los cambios de <code>main</code>.</p>
-<h2 id="validar-localmente">Validar localmente<a class="headerlink" href="#validar-localmente" title="Permanent link">&para;</a></h2>
-<p>Además del JDK de la aplicación, instalar Python 3.12 para las herramientas de documentación. Desde PowerShell, en la raíz del proyecto:</p>
-<div class="highlight"><pre><span></span><code><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="p">.</span><span class="n">venv-docs</span>
-<span class="p">.\.</span><span class="n">venv-docs</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">-m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements-docs</span><span class="p">.</span><span class="n">txt</span>
-<span class="p">.\.</span><span class="n">venv-docs</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">-m</span> <span class="n">mkdocs</span> <span class="n">build</span> <span class="p">-</span><span class="n">-strict</span>
-<span class="p">.\.</span><span class="n">venv-docs</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">python</span><span class="p">.</span><span class="n">exe</span> <span class="n">-m</span> <span class="n">mkdocs</span> <span class="n">serve</span>
-</code></pre></div>
-<p>Abrir la dirección que muestre MkDocs, normalmente <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>. Detener con <code>Ctrl+C</code>.</p>
-<p><code>site/</code> contiene la salida generada y no se versiona. El modo estricto detiene la publicación si la construcción produce advertencias. Los diagramas Mermaid se renderizan en el navegador mediante el soporte de Material.</p>
-<h2 id="mantener-la-documentacion">Mantener la documentación<a class="headerlink" href="#mantener-la-documentacion" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Añadir las nuevas páginas al menú <code>nav</code> de <code>mkdocs.yml</code>.</li>
-<li>Usar enlaces relativos entre archivos dentro de <code>docs/</code>.</li>
-<li>Mantener alineado el onboarding de <code>docs/index.md</code> con el README del repositorio.</li>
-<li>No copiar contraseñas ni archivos de configuración con secretos dentro de <code>docs/</code>.</li>
-</ul>
-<h2 id="referencias">Referencias<a class="headerlink" href="#referencias" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages">Publicación con un workflow de GitHub Pages</a>.</li>
-<li><a href="https://squidfunk.github.io/mkdocs-material/reference/diagrams/">Diagramas Mermaid en Material</a>.</li>
-</ul>
+<h1 id="c1-contexto-del-sistema">C1 · Contexto del sistema<a class="headerlink" href="#c1-contexto-del-sistema" title="Permanent link">&para;</a></h1>
+<p>Este diagrama muestra Telo como sistema completo y las personas o canales con los que interactúa. Describe el destino de la arquitectura V1; no representa integraciones automáticas que no están en alcance.</p>
+<pre class="mermaid"><code>flowchart LR
+  Visitante[Visitante]
+  Personal[Personal autorizado]
+  WhatsApp[WhatsApp del personal]
+  Telo[Telo\nSistema web hotelero]
+  Pago[Yape o banco\nCanal de pago externo]
+
+  Visitante --&gt;|consulta, reserva y sube voucher| Telo
+  Visitante --&gt;|puede enviar voucher| WhatsApp
+  Visitante --&gt;|realiza pago| Pago
+  Personal --&gt;|administra y verifica pagos| Telo
+  Personal --&gt;|recibe voucher y registra recepción| WhatsApp
+  Personal --&gt;|verifica externamente| Pago</code></pre>
+<p>Telo no integra APIs de Yape, bancos o WhatsApp. Estos canales se tratan como procesos externos y la validación del pago la realiza el personal.</p>
+<p>La aplicación tampoco utiliza Supabase Auth, REST API, Storage ni Edge Functions. Supabase aloja PostgreSQL y se accede con JDBC/JPA estándar.</p>
 
 
 
@@ -592,10 +504,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.top", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
     
   </body>

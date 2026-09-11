@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Onboarding y diseño técnico de Telo">
+        <meta name="description" content="Alcance, requerimientos y arquitectura de Telo">
       
       
       
@@ -14,7 +14,7 @@
       
       
       
-        <link rel="next" href="alcance-v1/">
+        <link rel="next" href="tecnica/c1-contexto/">
       
       
         
@@ -66,7 +66,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#telo" class="md-skip">
+        <a href="#telo-alcance-de-la-solucion-v1" class="md-skip">
           Saltar a contenido
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Inicio y onboarding
+              Inicio
             
           </span>
         </div>
@@ -238,7 +238,7 @@
   <span class="md-ellipsis">
     
   
-    Inicio y onboarding
+    Inicio
   
 
     
@@ -256,7 +256,7 @@
   <span class="md-ellipsis">
     
   
-    Inicio y onboarding
+    Inicio
   
 
     
@@ -282,10 +282,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requisitos" class="md-nav__link">
+  <a href="#organizacion-funcional-de-la-v1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requisitos
+        Organización funcional de la V1
       
     </span>
   </a>
@@ -293,10 +293,255 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#primer-arranque-sin-base-de-datos" class="md-nav__link">
+  <a href="#capa-de-presentacion-web-publica-del-hotel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Primer arranque sin base de datos
+        Capa de presentación: Web pública del hotel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capa de presentación: Web pública del hotel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulo-core-reservas-disponibilidad-y-pagos-manuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Módulo Core: Reservas, disponibilidad y pagos manuales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulo Core: Reservas, disponibilidad y pagos manuales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estados-de-reserva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estados de reserva
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pago-y-voucher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pago y voucher
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pago y voucher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capacidad-transversal-identidad-y-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacidad transversal: Identidad y acceso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capacidad transversal: Identidad y acceso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulo-de-soporte-configuracion-del-hotel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Módulo de soporte: Configuración del hotel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulo de soporte: Configuración del hotel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulo-de-soporte-catalogo-de-habitaciones-y-tarifas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Módulo de soporte: Catálogo de habitaciones y tarifas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulo de soporte: Catálogo de habitaciones y tarifas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fuera-de-alcance-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuera de alcance V1
       
     </span>
   </a>
@@ -304,10 +549,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conectar-desarrollo" class="md-nav__link">
+  <a href="#evolucion-modular-prevista" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conectar desarrollo
+        Evolución modular prevista
       
     </span>
   </a>
@@ -315,21 +560,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pruebas" class="md-nav__link">
+  <a href="#documentacion-tecnica" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pruebas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentos-del-proyecto" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentos del proyecto
+        Documentación técnica
       
     </span>
   </a>
@@ -350,15 +584,62 @@
   
   
   
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documentación técnica
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentación técnica
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="alcance-v1/" class="md-nav__link">
+      <a href="tecnica/c1-contexto/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Alcance y diseño V1
+    C1 · Contexto del sistema
   
 
     
@@ -370,22 +651,23 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="supabase/" class="md-nav__link">
+      <a href="tecnica/c2-contenedores/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Base de datos en Supabase
+    C2 · Contenedores
   
 
     
@@ -397,22 +679,23 @@
     </li>
   
 
-    
-      
-      
+              
+            
+              
+                
   
   
   
   
     <li class="md-nav__item">
-      <a href="publicar-documentacion/" class="md-nav__link">
+      <a href="tecnica/dominio-v1/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Publicar documentación
+    Diseño del dominio y datos
   
 
     
@@ -421,6 +704,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -452,10 +743,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requisitos" class="md-nav__link">
+  <a href="#organizacion-funcional-de-la-v1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Requisitos
+        Organización funcional de la V1
       
     </span>
   </a>
@@ -463,10 +754,255 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#primer-arranque-sin-base-de-datos" class="md-nav__link">
+  <a href="#capa-de-presentacion-web-publica-del-hotel" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Primer arranque sin base de datos
+        Capa de presentación: Web pública del hotel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capa de presentación: Web pública del hotel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulo-core-reservas-disponibilidad-y-pagos-manuales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Módulo Core: Reservas, disponibilidad y pagos manuales
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulo Core: Reservas, disponibilidad y pagos manuales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estados-de-reserva" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estados de reserva
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pago-y-voucher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pago y voucher
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Pago y voucher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capacidad-transversal-identidad-y-acceso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capacidad transversal: Identidad y acceso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capacidad transversal: Identidad y acceso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulo-de-soporte-configuracion-del-hotel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Módulo de soporte: Configuración del hotel
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulo de soporte: Configuración del hotel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modulo-de-soporte-catalogo-de-habitaciones-y-tarifas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Módulo de soporte: Catálogo de habitaciones y tarifas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Módulo de soporte: Catálogo de habitaciones y tarifas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#requerimientos_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requerimientos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reglas-confirmadas-y-precisiones-restantes_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reglas confirmadas y precisiones restantes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fuera-de-alcance-v1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fuera de alcance V1
       
     </span>
   </a>
@@ -474,10 +1010,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#conectar-desarrollo" class="md-nav__link">
+  <a href="#evolucion-modular-prevista" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Conectar desarrollo
+        Evolución modular prevista
       
     </span>
   </a>
@@ -485,21 +1021,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pruebas" class="md-nav__link">
+  <a href="#documentacion-tecnica" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Pruebas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#documentos-del-proyecto" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Documentos del proyecto
+        Documentación técnica
       
     </span>
   </a>
@@ -526,59 +1051,382 @@
   
 
 
-<h1 id="telo">Telo<a class="headerlink" href="#telo" title="Permanent link">&para;</a></h1>
-<p>Documentación del proyecto hotelero: primer arranque, conexión a PostgreSQL y diseño técnico de la V1.</p>
-<h2 id="requisitos">Requisitos<a class="headerlink" href="#requisitos" title="Permanent link">&para;</a></h2>
-<p>Instalar JDK 21 y configurar <code>JAVA_HOME</code>. Maven Wrapper descarga Maven y sus dependencias durante la primera ejecución; necesita acceso a Internet. No es necesario instalar Maven por separado.</p>
-<h2 id="primer-arranque-sin-base-de-datos">Primer arranque sin base de datos<a class="headerlink" href="#primer-arranque-sin-base-de-datos" title="Permanent link">&para;</a></h2>
-<p>Desde PowerShell, en la carpeta del proyecto:</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd </span><span class="n">C</span><span class="p">:\</span><span class="n">262dev</span><span class="p">\</span><span class="n">telo</span>
-<span class="p">.\</span><span class="n">mvnw</span><span class="p">.</span><span class="n">cmd</span> <span class="s1">'-Dspring-boot.run.profiles=local'</span> <span class="n">spring-boot</span><span class="p">:</span><span class="n">run</span>
-</code></pre></div>
-<p>Si el proyecto está en otra carpeta, ajustar la ruta. En Linux/macOS:</p>
-<div class="highlight"><pre><span></span><code>./mvnw<span class="w"> </span>-Dspring-boot.run.profiles<span class="o">=</span><span class="nb">local</span><span class="w"> </span>spring-boot:run
-</code></pre></div>
-<p>Abrir <a href="http://localhost:8080/">http://localhost:8080/</a> y comprobar el saludo. Detener con <code>Ctrl+C</code>.</p>
-<p>El perfil <code>local</code> desactiva la autoconfiguración de base de datos: no requiere PostgreSQL, Supabase ni credenciales.</p>
-<h2 id="conectar-desarrollo">Conectar desarrollo<a class="headerlink" href="#conectar-desarrollo" title="Permanent link">&para;</a></h2>
-<p>Seguir el <a href="supabase/">manual de Supabase</a> y revisar <code>application-dev.properties</code>. Después de detener la instancia local:</p>
-<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">mvnw</span><span class="p">.</span><span class="n">cmd</span> <span class="n">spring-boot</span><span class="p">:</span><span class="n">run</span>
-</code></pre></div>
-<p>Sin indicar perfil se utiliza <code>dev</code>, que necesita conexión a la base de desarrollo.</p>
+<h1 id="telo-alcance-de-la-solucion-v1">Telo · Alcance de la solución V1<a class="headerlink" href="#telo-alcance-de-la-solucion-v1" title="Permanent link">&para;</a></h1>
+<p>Este es el documento de aprobación para el directorio del hotel. Telo permitirá conocer el hotel, consultar disponibilidad, solicitar reservas y administrarlas desde una única aplicación.</p>
+<h2 id="organizacion-funcional-de-la-v1">Organización funcional de la V1<a class="headerlink" href="#organizacion-funcional-de-la-v1" title="Permanent link">&para;</a></h2>
+<p>Telo se desplegará como un solo sistema, pero con límites claros para que pueda crecer sin mezclar responsabilidades.</p>
 <table>
 <thead>
 <tr>
-<th>Perfil</th>
-<th>Uso</th>
+<th>Límite</th>
+<th>Clasificación</th>
+<th>Responsabilidad</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>local</code></td>
-<td>Hola mundo sin base de datos.</td>
+<td>Reservas</td>
+<td>Módulo <strong>Core</strong></td>
+<td>Disponibilidad, solicitudes, bloques, vouchers, pagos manuales e historial de la reserva.</td>
 </tr>
 <tr>
-<td><code>dev</code></td>
-<td>Desarrollo con PostgreSQL en Supabase; predeterminado.</td>
+<td>Catálogo de habitaciones y tarifas</td>
+<td>Módulo de soporte</td>
+<td>Oferta vendible, habitaciones físicas y precios.</td>
 </tr>
 <tr>
-<td><code>prod</code></td>
-<td>Producción, pendiente de configurar con variables <code>PROD_DB_*</code>.</td>
+<td>Configuración del hotel</td>
+<td>Módulo de soporte compartido</td>
+<td>Datos institucionales, idioma, zona horaria, contenido público y medios de pago.</td>
+</tr>
+<tr>
+<td>Identidad y acceso</td>
+<td>Capacidad transversal</td>
+<td>Personal autorizado, permisos y trazabilidad.</td>
+</tr>
+<tr>
+<td>Web pública y panel administrativo</td>
+<td>Capa de presentación</td>
+<td>Canales desde los que visitante y personal usan los módulos; no son dueños de datos de negocio.</td>
 </tr>
 </tbody>
 </table>
-<p>Activar un solo perfil de entorno a la vez.</p>
-<h2 id="pruebas">Pruebas<a class="headerlink" href="#pruebas" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p">.\</span><span class="n">mvnw</span><span class="p">.</span><span class="n">cmd</span> <span class="n">test</span>
-</code></pre></div>
-<p>Las pruebas actuales utilizan <code>local</code> y no requieren base de datos.</p>
-<h2 id="documentos-del-proyecto">Documentos del proyecto<a class="headerlink" href="#documentos-del-proyecto" title="Permanent link">&para;</a></h2>
+<h2 id="capa-de-presentacion-web-publica-del-hotel">Capa de presentación: Web pública del hotel<a class="headerlink" href="#capa-de-presentacion-web-publica-del-hotel" title="Permanent link">&para;</a></h2>
+<p><strong>Descripción.</strong> Presenta el hotel, sus habitaciones y servicios; guía al visitante hacia la reserva.</p>
+<h3 id="requerimientos">Requerimientos<a class="headerlink" href="#requerimientos" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>W-01</td>
+<td>La web pública mostrará Inicio, Habitaciones, Servicios, Galería, Ubicación y Contacto.</td>
+</tr>
+<tr>
+<td>W-02</td>
+<td>Cada sección mostrará contenido propio del hotel: presentación, tipos de habitación, servicios, imágenes, dirección, mapa o indicaciones y medios de contacto.</td>
+</tr>
+<tr>
+<td>W-03</td>
+<td>El visitante podrá cambiar entre español e inglés. Los textos estáticos y el contenido administrable se mostrarán en el idioma elegido.</td>
+</tr>
+<tr>
+<td>W-04</td>
+<td>La página será usable desde celular, tableta y computadora.</td>
+</tr>
+<tr>
+<td>W-05</td>
+<td>Desde Inicio y Habitaciones existirá una llamada clara para iniciar la reserva.</td>
+</tr>
+<tr>
+<td>W-06</td>
+<td>La galería mostrará imágenes proporcionadas o aprobadas por el hotel. La administración de archivos y un CMS no forman parte de V1.</td>
+</tr>
+<tr>
+<td>W-07</td>
+<td>Ubicación y contacto mostrarán los datos configurados por el hotel; no se integra un servicio externo de mapas en V1.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reglas-confirmadas-y-precisiones-restantes">Reglas confirmadas y precisiones restantes<a class="headerlink" href="#reglas-confirmadas-y-precisiones-restantes" title="Permanent link">&para;</a></h3>
 <ul>
-<li><a href="alcance-v1/">Alcance y diseño técnico V1</a>, incluidos diagramas de clases.</li>
-<li><a href="supabase/">Creación y conexión de la base de datos</a>.</li>
-<li><a href="publicar-documentacion/">Publicación de esta documentación en GitHub Pages</a>.</li>
+<li>La web pública estará disponible en español e inglés.</li>
+<li>Se cargarán antes de publicar los datos reales, textos, servicios, imágenes y contacto del hotel.</li>
+<li>No se incluyen CMS, administración de archivos ni integración automática de mapas en V1.</li>
 </ul>
-<p>La aplicación contiene el arranque inicial y la configuración. Las funcionalidades hoteleras están en fase de diseño.</p>
+<h2 id="modulo-core-reservas-disponibilidad-y-pagos-manuales">Módulo Core: Reservas, disponibilidad y pagos manuales<a class="headerlink" href="#modulo-core-reservas-disponibilidad-y-pagos-manuales" title="Permanent link">&para;</a></h2>
+<p><strong>Descripción.</strong> Permite solicitar una o varias habitaciones bajo una referencia común y evita vender más habitaciones de las disponibles.</p>
+<h3 id="requerimientos_1">Requerimientos<a class="headerlink" href="#requerimientos_1" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>R-01</td>
+<td>La web permitirá elegir llegada, salida y cantidad de huéspedes.</td>
+</tr>
+<tr>
+<td>R-02</td>
+<td>Una solicitud podrá incluir varias habitaciones y distintos tipos, bajo una referencia común.</td>
+</tr>
+<tr>
+<td>R-03</td>
+<td>El sistema verificará capacidad, habitaciones habilitadas y reservas superpuestas por cada noche.</td>
+</tr>
+<tr>
+<td>R-04</td>
+<td>Una reserva pendiente retendrá el bloque completo de habitaciones.</td>
+</tr>
+<tr>
+<td>R-05</td>
+<td>El sistema mostrará tarifas variables por fecha en soles, con impuesto del 18% incluido.</td>
+</tr>
+<tr>
+<td>R-06</td>
+<td>La solicitud conservará el precio, tipo, contacto y condiciones mostradas al visitante.</td>
+</tr>
+<tr>
+<td>R-07</td>
+<td>Una confirmación concurrente no podrá vender más habitaciones de las disponibles.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reglas-confirmadas-y-precisiones-restantes_1">Reglas confirmadas y precisiones restantes<a class="headerlink" href="#reglas-confirmadas-y-precisiones-restantes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Las reservas pueden incluir varias habitaciones y tipos distintos.</li>
+<li>Una reserva <code>PENDIENTE</code> bloquea el cupo; <code>CONFIRMADA</code> lo conserva; <code>CANCELADA</code> o <code>VENCIDA</code> lo libera.</li>
+<li>Las tarifas son variables por fecha, en <code>PEN</code>, con 18% incluido.</li>
+<li>Se conserva el precio registrado al enviar la solicitud aunque cambien las tarifas.</li>
+<li>Falta definir si un bloque puede tener fechas distintas por habitación, si admite cancelación parcial y si se retiene cupo mientras el visitante arma la selección antes de enviarla.</li>
+</ul>
+<h3 id="estados-de-reserva">Estados de reserva<a class="headerlink" href="#estados-de-reserva" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Estado</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PENDIENTE</code></td>
+<td>Retiene habitaciones mientras espera o revisa el pago.</td>
+</tr>
+<tr>
+<td><code>CONFIRMADA</code></td>
+<td>Pago aprobado por el personal; conserva las habitaciones.</td>
+</tr>
+<tr>
+<td><code>CANCELADA</code></td>
+<td>Deja de retener habitaciones; no genera devolución.</td>
+</tr>
+<tr>
+<td><code>VENCIDA</code></td>
+<td>No se recibió voucher oportuno; libera habitaciones.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pago-y-voucher">Pago y voucher<a class="headerlink" href="#pago-y-voucher" title="Permanent link">&para;</a></h3>
+<p><strong>Descripción.</strong> Informa cómo pagar, recibe el comprobante y permite al personal validar manualmente el pago antes de confirmar.</p>
+<h4 id="requerimientos_2">Requerimientos<a class="headerlink" href="#requerimientos_2" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P-01</td>
+<td>Se mostrarán QR de Yape y/o cuentas de depósito configuradas por el hotel.</td>
+</tr>
+<tr>
+<td>P-02</td>
+<td>El voucher podrá recibirse por la web o WhatsApp del personal.</td>
+</tr>
+<tr>
+<td>P-03</td>
+<td>El plazo para recibir voucher será de dos horas para llegada el mismo día y cuatro horas para llegada posterior.</td>
+</tr>
+<tr>
+<td>P-04</td>
+<td>El personal podrá aprobar cualquier monto, sea pago total o adelanto, para confirmar una reserva.</td>
+</tr>
+<tr>
+<td>P-05</td>
+<td>Los pagos aprobados serán no reembolsables.</td>
+</tr>
+<tr>
+<td>P-06</td>
+<td>Sin voucher oportuno, la reserva vencida liberará el bloque completo.</td>
+</tr>
+<tr>
+<td>P-07</td>
+<td>Subir o recibir un voucher no confirma por sí solo; requiere revisión del personal.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="reglas-confirmadas-y-precisiones-restantes_2">Reglas confirmadas y precisiones restantes<a class="headerlink" href="#reglas-confirmadas-y-precisiones-restantes_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>La web mostrará QR de Yape o cuentas de depósito; no habrá integración automática con Yape, bancos o WhatsApp.</li>
+<li>El voucher puede subirlo el visitante en la web o enviarlo al WhatsApp del personal.</li>
+<li>El plazo es de dos horas para llegada el mismo día y cuatro horas para llegada posterior.</li>
+<li>El personal puede aprobar cualquier monto, total o adelanto. Todo pago aprobado es no reembolsable.</li>
+<li>Un voucher recibido no confirma automáticamente; el personal verifica la operación externa.</li>
+<li>Falta definir si un voucher rechazado puede reenviarse y hasta cuándo.</li>
+</ul>
+<h2 id="capacidad-transversal-identidad-y-acceso">Capacidad transversal: Identidad y acceso<a class="headerlink" href="#capacidad-transversal-identidad-y-acceso" title="Permanent link">&para;</a></h2>
+<p><strong>Descripción.</strong> Controla la identidad del personal, sus permisos de acceso y la trazabilidad de las operaciones. La administración es la interfaz desde la que el personal autorizado usa los módulos del sistema; no es un módulo de negocio que sea dueño de datos del hotel, reservas o contabilidad.</p>
+<h3 id="requerimientos_3">Requerimientos<a class="headerlink" href="#requerimientos_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-01</td>
+<td>El personal autorizado iniciará sesión en la administración.</td>
+</tr>
+<tr>
+<td>A-02</td>
+<td>Recepción gestionará reservas y vouchers. Administración podrá además operar catálogo y configuración del hotel.</td>
+</tr>
+<tr>
+<td>A-03</td>
+<td>Las reservas conservarán historial de cambios, vouchers y decisiones del personal.</td>
+</tr>
+<tr>
+<td>A-04</td>
+<td>Las acciones administrativas requerirán autorización verificada en el servidor.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reglas-confirmadas-y-precisiones-restantes_3">Reglas confirmadas y precisiones restantes<a class="headerlink" href="#reglas-confirmadas-y-precisiones-restantes_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Recepción administra reservas y vouchers.</li>
+<li>Administración tiene permiso para operar catálogo y configuración, pero estos datos siguen perteneciendo a su propio módulo.</li>
+<li>Las decisiones del personal y los vouchers se conservarán en el historial de la reserva.</li>
+<li>No se incluye gestión configurable de permisos ni integración con Supabase Auth.</li>
+</ul>
+<h2 id="modulo-de-soporte-configuracion-del-hotel">Módulo de soporte: Configuración del hotel<a class="headerlink" href="#modulo-de-soporte-configuracion-del-hotel" title="Permanent link">&para;</a></h2>
+<p><strong>Descripción.</strong> Es el módulo fundacional que administra los datos compartidos de un hotel. Reservas, Catálogo y futuros módulos como Contabilidad los consultan, pero no los modifican directamente.</p>
+<h3 id="requerimientos_4">Requerimientos<a class="headerlink" href="#requerimientos_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CFG-01</td>
+<td>Administración podrá mantener nombre, dirección, contacto, ubicación, zona horaria, textos públicos, QR de Yape y cuentas de depósito del hotel.</td>
+</tr>
+<tr>
+<td>CFG-02</td>
+<td>Administración podrá activar idiomas disponibles, elegir el idioma predeterminado y registrar traducciones del contenido administrable. La V1 inicia con español e inglés.</td>
+</tr>
+<tr>
+<td>CFG-03</td>
+<td>Un idioma solo podrá publicarse para el visitante cuando tenga traducciones completas del contenido dinámico y mensajes estáticos disponibles en la aplicación.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reglas-confirmadas-y-precisiones-restantes_4">Reglas confirmadas y precisiones restantes<a class="headerlink" href="#reglas-confirmadas-y-precisiones-restantes_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Configuración del hotel es la única propietaria de los datos institucionales, medios de pago, zona horaria, contenido público e idiomas.</li>
+<li>Contabilidad futura consultará identidad legal, moneda, impuestos y zona horaria desde este módulo; no duplicará esos datos.</li>
+<li>Idioma es parte de la configuración del hotel, no un módulo separado. Español e inglés están activos en V1; se podrán habilitar otros idiomas cuando estén traducidos.</li>
+<li>El personal puede cargar traducciones de contenido del hotel. Los textos estáticos de la aplicación requieren su archivo de traducción entregado por el equipo técnico antes de habilitar un idioma para el público.</li>
+<li>Falta cargar los datos reales del hotel, textos, imágenes, QR, cuentas y zona horaria antes de publicar.</li>
+</ul>
+<h2 id="modulo-de-soporte-catalogo-de-habitaciones-y-tarifas">Módulo de soporte: Catálogo de habitaciones y tarifas<a class="headerlink" href="#modulo-de-soporte-catalogo-de-habitaciones-y-tarifas" title="Permanent link">&para;</a></h2>
+<p><strong>Descripción.</strong> Administra el inventario vendible del hotel y sus precios. Reservas consulta este módulo para conocer qué se puede vender, pero conserva snapshots para no alterar contratos ya registrados.</p>
+<h3 id="requerimientos_5">Requerimientos<a class="headerlink" href="#requerimientos_5" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requerimiento</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CAT-01</td>
+<td>Administración podrá crear, editar, activar o desactivar tipos de habitación con código, capacidad y contenido en español e inglés.</td>
+</tr>
+<tr>
+<td>CAT-02</td>
+<td>Administración podrá crear, editar, habilitar o deshabilitar habitaciones físicas, identificadas por código y asociadas a un tipo de habitación.</td>
+</tr>
+<tr>
+<td>CAT-03</td>
+<td>Administración podrá definir tarifas variables por tipo de habitación y fecha, en <code>PEN</code> con impuesto del 18% incluido.</td>
+</tr>
+<tr>
+<td>CAT-04</td>
+<td>Los cambios de catálogo y tarifas no alterarán la información histórica conservada en reservas existentes.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="reglas-confirmadas-y-precisiones-restantes_5">Reglas confirmadas y precisiones restantes<a class="headerlink" href="#reglas-confirmadas-y-precisiones-restantes_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Una habitación física pertenece a un tipo; el visitante reserva el tipo y el personal asigna la habitación posteriormente.</li>
+<li>Una habitación deshabilitada deja de ofrecerse para nuevas reservas.</li>
+<li>Las tarifas pueden variar por fecha y se conservan como historial para respetar precios ya aceptados.</li>
+<li>Catálogo no es dueño de los datos institucionales ni de idiomas: los consume desde Configuración del hotel.</li>
+</ul>
+<h2 id="fuera-de-alcance-v1">Fuera de alcance V1<a class="headerlink" href="#fuera-de-alcance-v1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Pasarela de pagos e integración con Yape, bancos o WhatsApp.</li>
+<li>Facturación electrónica, contabilidad, caja e inventarios.</li>
+<li>Housekeeping, aplicación móvil y API pública.</li>
+<li>Devoluciones automáticas o gestión contable de pagos.</li>
+</ul>
+<h2 id="evolucion-modular-prevista">Evolución modular prevista<a class="headerlink" href="#evolucion-modular-prevista" title="Permanent link">&para;</a></h2>
+<p>La V1 se construye como una sola aplicación, organizada internamente por módulos. Esto evita incorporar complejidad de microservicios antes de necesitarla y permite que cada futuro módulo tenga sus propios datos y reglas.</p>
+<table>
+<thead>
+<tr>
+<th>Módulo futuro</th>
+<th>Responsabilidad</th>
+<th>Situación en V1</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Recepción y estadía</td>
+<td>Check-in, check-out y operación durante la estadía.</td>
+<td>Fuera de alcance; candidato Core cuando tenga alcance propio.</td>
+</tr>
+<tr>
+<td>Contabilidad</td>
+<td>Libro contable, ingresos, gastos y conciliación.</td>
+<td>Fuera de alcance; no se crean tablas contables.</td>
+</tr>
+<tr>
+<td>Caja y facturación electrónica</td>
+<td>Cobros, comprobantes fiscales y caja.</td>
+<td>Fuera de alcance; el voucher solo confirma manualmente la reserva.</td>
+</tr>
+<tr>
+<td>Personal y planilla</td>
+<td>Colaboradores, turnos, asistencia y remuneraciones.</td>
+<td>Fuera de alcance.</td>
+</tr>
+<tr>
+<td>Inventario y compras</td>
+<td>Insumos, proveedores y existencias.</td>
+<td>Fuera de alcance.</td>
+</tr>
+<tr>
+<td>Housekeeping</td>
+<td>Limpieza, estado operativo y tareas de habitación.</td>
+<td>Fuera de alcance.</td>
+</tr>
+<tr>
+<td>Reportes</td>
+<td>Indicadores operativos y financieros.</td>
+<td>Se definirá cuando existan los módulos fuente.</td>
+</tr>
+</tbody>
+</table>
+<p>Estos módulos futuros son candidatos surgidos del ciclo hotelero; requieren su propio alcance antes de modelar entidades o tablas. Cada uno deberá integrarse mediante contratos internos claros y conservar su propio modelo de datos. No debe reutilizar tablas de reservas, catálogo o usuarios para almacenar sus operaciones particulares.</p>
+<h2 id="documentacion-tecnica">Documentación técnica<a class="headerlink" href="#documentacion-tecnica" title="Permanent link">&para;</a></h2>
+<p>El equipo técnico dispone de <a href="tecnica/c1-contexto/">C1 · Contexto</a>, <a href="tecnica/c2-contenedores/">C2 · Contenedores</a> y <a href="tecnica/dominio-v1/">diseño del dominio y datos</a>. Esos documentos explican cómo se implementarán estos módulos.</p>
 
 
 
