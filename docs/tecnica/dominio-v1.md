@@ -1,64 +1,10 @@
-# Telo — Alcance V1
+# Diseño técnico del dominio y datos · V1
 
-## Objetivo
+Esta página es la referencia técnica del modelo de dominio. Conserva los diagramas, tablas, reglas de disponibilidad, concurrencia, historial y migraciones Flyway necesarios para construir Telo.
 
-Permitir que un visitante conozca el hotel y solicite una reservación de habitación. El personal autorizado gestiona las solicitudes, las habitaciones, sus tipos y las tarifas.
+El alcance y requerimientos orientados al directorio se encuentran en la sección **Para aprobación del hotel**. Este documento explica cómo el equipo implementará esas reglas, sin duplicarlas como documentación de negocio.
 
-## Web pública
-
-Secciones: Inicio, Habitaciones, Servicios, Galería, Ubicación y Contacto. La experiencia pública y el proceso de reservación estarán disponibles en español e inglés.
-
-## Reservaciones
-
-1. El visitante ingresa llegada, salida y cantidad de huéspedes.
-2. El sistema consulta disponibilidad para el intervalo solicitado.
-3. El visitante selecciona uno o varios tipos disponibles y la cantidad de habitaciones de cada tipo, incluyendo reservas en bloque.
-4. El visitante registra sus datos y envía la solicitud.
-5. El sistema registra la reserva con estado `PENDIENTE` y muestra una referencia de la solicitud.
-6. Muestra el QR de Yape o las cuentas de depósito y el plazo para enviar el voucher.
-7. El visitante sube el voucher en la web o lo envía al WhatsApp del personal por el pago total o un adelanto; el personal registra y verifica el pago, y puede confirmar la reserva por cualquier monto que apruebe.
-
-Política comercial indicada por el usuario: los pagos no son reembolsables. Mostrar esta condición en español e inglés antes de solicitar el pago y registrar su aceptación. Cancelar libera habitaciones, pero no genera devolución. No existe adelanto mínimo: el personal puede aprobar cualquier monto y, al hacerlo, confirmar la reserva.
-
-Plazo confirmado para enviar el voucher: dos horas si la llegada es el mismo día de creación de la reserva, cuatro horas si la llegada es otro día. Se propone contar desde el registro de la reserva pendiente y comparar fechas en `America/Lima`.
-
-Enviar la solicitud no equivale a confirmar la reserva. La interfaz debe comunicar esta diferencia en ambos idiomas.
-
-## Administración
-
-Acceso mediante inicio de sesión para personal autorizado. Permite consultar reservas, confirmarlas o cancelarlas, y administrar habitaciones, tipos de habitación y tarifas.
-
-Estados contemplados: `PENDIENTE`, `CONFIRMADA`, `CANCELADA` y `VENCIDA`. Enviar un voucher no confirma por sí solo: el personal debe verificar el pago.
-
-## Criterios de aceptación
-
-- Todas las secciones públicas son accesibles en español e inglés.
-- Llegada, salida y cantidad de huéspedes son obligatorias; salida debe ser posterior a llegada y huéspedes debe ser un entero positivo.
-- La disponibilidad contempla las fechas, capacidad y habitaciones habilitadas.
-- Se verifica nuevamente la disponibilidad al registrar la reserva para evitar aceptar una selección que dejó de estar disponible.
-- Toda solicitud nueva se registra como `PENDIENTE` y conserva las fechas, huéspedes, habitaciones solicitadas por tipo y datos del visitante.
-- La reserva puede contener varias habitaciones; al registrarse como `PENDIENTE` compromete el bloque completo de forma atómica. Confirmarla conserva ese cupo y cancelarla lo libera.
-- Si vence el plazo sin voucher recibido, la reserva pasa a `VENCIDA` y libera todas sus habitaciones. Se propone conservar el cupo de un voucher recibido a tiempo mientras el personal lo revisa.
-- Moneda confirmada: soles (`PEN`). Las tarifas ingresadas ya incluyen el impuesto del 18%; no se suma nuevamente.
-- Las operaciones administrativas requieren autenticación y autorización en el servidor.
-- La confirmación vuelve a comprobar que existe disponibilidad; solicitudes concurrentes no pueden confirmar el mismo alojamiento para fechas superpuestas.
-- Las modificaciones del catálogo y las tarifas no alteran el importe ni la información histórica de reservas ya registradas.
-
-## Base técnica existente
-
-El proyecto Spring Boot funciona con Java 21, Maven, Spring MVC, Thymeleaf, Spring Security, JPA, validación y PostgreSQL alojado en Supabase. La conexión de desarrollo está verificada. Aún no contiene las funcionalidades hoteleras descritas en este documento.
-
-El arranque inicial muestra `Hola mundo`. Consultar el [onboarding](index.md) para ejecutarlo y el [manual de Supabase](supabase.md) para crear y conectar la base de datos.
-
-## Fuera de alcance
-
-Contabilidad, inventarios, facturación electrónica, caja, housekeeping, aplicación móvil, API pública y pasarela de pagos.
-
-Mostrar medios de pago externos, recibir vouchers y verificarlos manualmente sí forma parte de V1. Esto no implica integración automática con Yape o bancos ni un módulo contable.
-
-## Diseño técnico del dominio
-
-Esta sección documenta la propuesta de diseño V1. No implica implementar entidades JPA, controllers, services, repositories, vistas ni migraciones. Las decisiones indicadas como pendientes deben resolverse antes de cerrar el modelo definitivo.
+El proyecto usa Spring Boot, JPA/JDBC estándar y PostgreSQL en el esquema `telo`, alojado actualmente en Supabase. No utiliza Supabase SDK, API REST, Auth, Storage ni Edge Functions.
 
 ### Condiciones técnicas
 
@@ -88,14 +34,47 @@ Esta sección documenta la propuesta de diseño V1. No implica implementar entid
 | Rol | Enum | No se solicita administrar un catálogo de roles. |
 | Permiso | Autoridades definidas en código | No requiere tablas ni interfaz de permisos configurables. |
 | Configuración del hotel | Tabla de una sola fila | Datos comunes del único hotel. |
+| Idioma | Tabla de configuración | Idiomas habilitados por el hotel y su código estable. |
 
-Se justifican las tablas adicionales `configuracion_hotel_traduccion` y `tipo_habitacion_traduccion` para multidioma; `reserva_detalle` para cada habitación solicitada del bloque; `reserva_noche` para conservar importes por unidad y noche; `reserva_evento` para trazabilidad administrativa; y `reserva_comprobante` para recepción y revisión del voucher. Son doce tablas en total. Los QR y datos de depósito se configuran como contenido del hotel, sin un catálogo financiero adicional.
+Se justifica la tabla adicional `idioma` para habilitar idiomas desde la configuración; `configuracion_hotel_traduccion` y `tipo_habitacion_traduccion` para contenido dinámico; `reserva_detalle` para cada habitación solicitada del bloque; `reserva_noche` para conservar importes por unidad y noche; `reserva_evento` para trazabilidad administrativa; y `reserva_comprobante` para recepción y revisión del voucher. Son trece tablas en total. Los QR y datos de depósito se configuran como contenido del hotel, sin un catálogo financiero adicional.
 
 La interfaz permite indicar cantidades por tipo, pero se persiste una fila de detalle por habitación solicitada. Por ejemplo, dos dobles y una simple generan tres detalles bajo una sola reserva. Así cada unidad puede asignarse posteriormente sin introducir otra tabla de asignaciones. No se necesita un módulo separado de reservas en bloque.
 
 Se propone un intervalo común, un estado global y confirmación/cancelación completa del bloque para V1. Fechas diferentes y cancelaciones parciales quedan pendientes de confirmación.
 
 La galería puede utilizar recursos incluidos en el proyecto, con textos estáticos traducidos. No se propone un administrador de galería, CMS ni almacenamiento de archivos adicional.
+
+#### Límites de dominio
+
+| Límite | Clasificación DDD | Dueño de la información |
+| --- | --- | --- |
+| `reservas` | Core | Reserva como raíz del agregado; detalles, noches, eventos y comprobantes solo se crean o cambian por medio de ella. |
+| `catalogo` | Soporte | Tipos de habitación, habitaciones físicas, traducciones de tipos y tarifas. |
+| `configuracion-hotel` | Soporte compartido | Datos institucionales, idiomas, zona horaria, contenido público y medios de pago. |
+| `identidad-acceso` | Genérico/transversal | Usuarios, roles definidos y autorización del personal. |
+
+La web pública y el panel administrativo son adaptadores de presentación del monolito, no módulos de dominio. Pago y voucher permanecen dentro del agregado `Reserva` en V1: solo registran una evidencia y una decisión manual que confirma la reserva; no existe todavía una contabilidad, caja o pasarela que justifique separarlos.
+
+#### Módulos del monolito y propiedad de datos
+
+```mermaid
+flowchart LR
+    IAM[Identidad y acceso\nUsuario · roles · autorización]
+    CFG[Configuración del hotel\nConfiguraciónHotel · Idioma\nConfiguraciónHotelTraducción]
+    CAT[Catálogo\nTipoHabitación · traducciones\nHabitación · Tarifa]
+    RES[Reservas · Core\nReserva · detalles · noches\neventos · comprobantes]
+    FUT[Recepción, contabilidad, planilla\ninventario y housekeeping · futuros módulos]
+
+    IAM -. auditoría y autorización .-> CFG
+    IAM -. auditoría y autorización .-> CAT
+    IAM -. auditoría y autorización .-> RES
+    CFG -->|idiomas y datos institucionales| CAT
+    CFG -->|zona horaria y medios de pago| RES
+    CAT -. tipo y tarifa; snapshot .-> RES
+    CFG -. configuración compartida .-> FUT
+```
+
+`Configuración del hotel` es un módulo compartido, no parte de Catálogo. Futuros módulos consultarán datos institucionales sin duplicarlos. `Reservas` es el único dueño de los contratos de reserva, su disponibilidad y sus snapshots; Catálogo no modifica una reserva existente. Identidad y acceso no contiene reglas de reservas ni de catálogo: aporta autenticación, autorización y el actor de auditoría.
 
 #### Diagrama de clases: configuración, catálogo y tarifas
 
@@ -114,14 +93,19 @@ class ConfiguracionHotel {
   numeric longitud_opcional
   varchar zona_horaria
   varchar moneda
-  varchar idioma_predeterminado
+  varchar idioma_predeterminado FK
   text instrucciones_pago
   varchar qr_yape_recurso
   bigint version
 }
+class Idioma {
+  varchar codigo PK
+  varchar nombre
+  boolean activo
+}
 class ConfiguracionHotelTraduccion {
   bigint hotel_id PK_FK
-  varchar idioma PK
+  varchar idioma PK_FK
   varchar titulo_inicio
   text descripcion_hotel
   text descripcion_servicios
@@ -136,7 +120,7 @@ class TipoHabitacion {
 }
 class TipoHabitacionTraduccion {
   bigint tipo_habitacion_id PK_FK
-  varchar idioma PK
+  varchar idioma PK_FK
   varchar nombre
   text descripcion
 }
@@ -160,13 +144,16 @@ class Tarifa {
   timestamptz retirada_en_opcional
   bigint retirada_por_opcional FK
 }
-ConfiguracionHotel "1" -- "0..2" ConfiguracionHotelTraduccion : traducciones
-TipoHabitacion "1" -- "0..2" TipoHabitacionTraduccion : traducciones
+ConfiguracionHotel "1" --> "1" Idioma : predeterminado
+Idioma "1" -- "0..*" ConfiguracionHotelTraduccion : traducciones
+Idioma "1" -- "0..*" TipoHabitacionTraduccion : traducciones
+ConfiguracionHotel "1" -- "0..*" ConfiguracionHotelTraduccion : traducciones
+TipoHabitacion "1" -- "0..*" TipoHabitacionTraduccion : traducciones
 TipoHabitacion "1" -- "0..*" Habitacion : agrupa
 TipoHabitacion "1" -- "0..*" Tarifa : versiones
 ```
 
-Las traducciones admiten cero filas durante la preparación; publicar requiere una traducción completa en español y otra en inglés. Las clases corresponden respectivamente a `configuracion_hotel`, `configuracion_hotel_traduccion`, `tipo_habitacion`, `tipo_habitacion_traduccion`, `habitacion` y `tarifa`.
+La tabla `idioma` se inicia con `es` y `en`. Las traducciones admiten cero filas durante la preparación; publicar un idioma requiere sus traducciones dinámicas completas. Las clases corresponden respectivamente a `configuracion_hotel`, `idioma`, `configuracion_hotel_traduccion`, `tipo_habitacion`, `tipo_habitacion_traduccion`, `habitacion` y `tarifa`.
 
 #### Diagrama de clases: reservas, noches, eventos y usuarios
 
@@ -269,6 +256,9 @@ class Usuario {
   boolean activo
   bigint version
 }
+class Idioma {
+  varchar codigo PK
+}
 class TipoHabitacion {
   bigint id PK
 }
@@ -283,6 +273,7 @@ TipoHabitacion "1" -- "0..*" ReservaDetalle : tipo solicitado
 Habitacion "0..1" -- "0..*" ReservaDetalle : asignacion posterior
 ReservaDetalle "1" -- "1..*" ReservaNoche : desglose por noche
 Tarifa "1" -- "0..*" ReservaNoche : version aplicada
+Idioma "1" -- "0..*" Reserva : idioma de solicitud
 Reserva "1" -- "1..*" ReservaEvento : historial
 Reserva "1" -- "0..*" ReservaComprobante : vouchers
 Usuario "0..1" -- "0..*" ReservaComprobante : revisor
@@ -311,6 +302,7 @@ Las seis tablas adicionales son `reserva`, `reserva_detalle`, `reserva_noche`, `
 | Tabla | Consideraciones específicas |
 | --- | --- |
 | `configuracion_hotel` | Máximo una fila, `id = 1`. Zona horaria IANA para interpretar la fecha actual del hotel. |
+| `idioma` | PK `codigo` con etiqueta BCP 47 corta, como `es` o `en`; `activo` controla si puede elegirse. No borrar idiomas con traducciones o reservas históricas. |
 | `configuracion_hotel_traduccion` | PK `(hotel_id, idioma)`. Información pública traducible, sin CMS. |
 | `tipo_habitacion` | Cantidad disponible derivada de habitaciones; no almacenar un contador duplicado. |
 | `tipo_habitacion_traduccion` | PK `(tipo_habitacion_id, idioma)`. Sin columnas `nombre_es` o `nombre_en`. |
@@ -328,7 +320,7 @@ Las seis tablas adicionales son `reserva`, `reserva_detalle`, `reserva_noche`, `
 | Enum | Valores propuestos |
 | --- | --- |
 | Estado de reserva | `PENDIENTE`, `CONFIRMADA`, `CANCELADA`, `VENCIDA` |
-| Idioma | `es`, `en` |
+| Idioma | Código BCP 47 almacenado en `idioma`; V1 siembra `es` y `en`, sin enum cerrado. |
 | Rol | `ADMINISTRADOR`, `RECEPCION`, por confirmar |
 | Origen de evento | `VISITANTE`, `USUARIO`, `SISTEMA` |
 | Tipo de evento | `CREADA`, `CONFIRMADA`, `CANCELADA`, `VENCIDA`, `VOUCHER_RECIBIDO`, `VOUCHER_APROBADO`, `VOUCHER_RECHAZADO`, `ASIGNADA`, `REASIGNADA` |
@@ -346,6 +338,7 @@ La regla de vencimiento justifica `VENCIDA`; no agregar estados de check-in, che
 - PK, FK y `NOT NULL` para atributos obligatorios.
 - Unicidad de código de tipo, código de habitación, login normalizado, referencia pública y clave de idempotencia.
 - `CHECK`: salida posterior a llegada; fin de vigencia posterior al inicio; capacidad y huéspedes positivos; importes no negativos; enums admitidos; moneda de tres letras.
+- FK desde `configuracion_hotel.idioma_predeterminado`, traducciones e idioma de reserva hacia `idioma.codigo`. No desactivar el idioma predeterminado; el Service lo valida al modificar configuración.
 - PK compuestas en traducciones y noches para evitar duplicados.
 - FK compuesta de `reserva_detalle` `(habitacion_id, tipo_habitacion_id)` a habitación, respaldada por `UNIQUE (id, tipo_habitacion_id)`, para impedir una asignación de otro tipo. `habitacion_id` puede ser nulo.
 - FK compuesta opcional de evento `(reserva_detalle_id, reserva_id)` a detalle, respaldada por `UNIQUE (id, reserva_id)`, para impedir eventos sobre detalles de otra reserva.
@@ -382,7 +375,7 @@ Las PK y restricciones únicas ya generan sus índices. Las PK compuestas de tra
 | Precisión decimal. | Cálculos, moneda consistente, suma de noches y redondeo. |
 | Correspondencia del tipo de habitación asignado. | Viabilidad de asignar estancias completas. |
 | Persistencia de versiones e historial. | Creación atómica de snapshots y eventos. |
-| Valores permitidos de idioma y estado. | Traducciones completas antes de publicar. |
+| Integridad de códigos de idioma y estado. | Traducciones completas y bundle Spring i18n disponible antes de publicar un idioma. |
 | Almacenamiento de vigencias. | Evitar solapamientos de tarifas activas bajo bloqueo del tipo. |
 
 El Service debe verificar que cada detalle tiene exactamente una noche por fecha del intervalo, que sus huéspedes no exceden la capacidad del tipo, que el total de huéspedes coincide con la suma de detalles y que las versiones tarifarias corresponden al tipo y moneda. Los totales de detalle son la suma de sus noches y los de cabecera la suma de detalles.
@@ -523,7 +516,7 @@ No se propone event sourcing ni historial genérico de cada campo de todas las t
 
 #### Multidioma
 
-Textos estáticos mediante Spring i18n. Contenido dinámico mediante las dos tablas de traducción, con clave compuesta de entidad e idioma. Exigir español e inglés completos antes de publicar el contenido. Estados e identificadores internos permanecen estables; la reserva copia el nombre mostrado en su idioma al enviarse.
+Textos estáticos mediante Spring i18n. Contenido dinámico mediante las tablas de traducción, con clave compuesta de entidad e idioma. La configuración del hotel administra los idiomas activos y el predeterminado; V1 siembra español e inglés. Para habilitar un idioma adicional, el personal carga el contenido dinámico y el equipo técnico entrega el bundle de mensajes estáticos correspondiente. Estados e identificadores internos permanecen estables; la reserva copia el nombre mostrado y código de idioma al enviarse.
 
 ### G. Migraciones Flyway propuestas
 
@@ -533,7 +526,7 @@ No se crean ni ejecutan en esta fase.
 | --- | --- | --- |
 | V1 | `crear_esquema_telo` | Crear `telo` si no existe; compatible con el esquema vacío creado manualmente. |
 | V2 | `crear_usuario` | Usuarios, roles permitidos, unicidad de login y auditoría. |
-| V3 | `crear_configuracion_hotel` | Configuración y traducciones. |
+| V3 | `crear_configuracion_hotel` | Configuración, catálogo de idiomas, idioma predeterminado y traducciones; sembrar `es` y `en`. |
 | V4 | `crear_catalogo_habitaciones` | Tipos, traducciones y habitaciones. |
 | V5 | `crear_tarifas` | Versiones tarifarias y vigencias. |
 | V6 | `crear_reservas` | Cabecera, detalles por habitación, snapshots, noches, desglose de impuesto, estados e idempotencia. |
@@ -543,37 +536,6 @@ No se crean ni ejecutan en esta fase.
 Cada migración incorpora sus restricciones e índices. Antes de implementarlas, resolver las decisiones que afectan estructura y configurar/habilitar Flyway en `telo` para los perfiles con base de datos. Conservar `ddl-auto=validate`, la conexión JDBC existente y el perfil `local` sin base de datos.
 
 No insertar contraseñas ni usuarios administrativos predeterminados en migraciones. No usar objetos de los esquemas internos de Supabase. Inspeccionar si existen tablas antes de considerar un baseline: el esquema vacío creado manualmente no lo requiere por sí solo. Las migraciones aplicadas son inmutables; los cambios posteriores utilizan nuevas versiones.
-
-### H. Reglas confirmadas y precisiones restantes
-
-**Confirmado por el usuario:**
-
-- Varias habitaciones o reservas en bloque.
-- Reservas `PENDIENTES` bloquean cupo mientras se espera el pago externo y su verificación manual.
-- Mostrar QR de Yape o cuentas de depósito y solicitar voucher.
-- Plazo para enviar voucher: dos horas para llegada el mismo día y cuatro horas para otra fecha.
-- Confirmar conserva el cupo; cancelar o vencer sin voucher lo libera.
-- Tarifas variables en soles (`PEN`), con impuesto del 18% ya incluido.
-- Voucher subido en la web o enviado al WhatsApp del personal; pago total o adelanto no reembolsable. El personal puede aprobar cualquier monto y confirmar la reserva.
-- Administración de acceso, catálogo, tarifas y reservas.
-- Web pública y reservaciones en español e inglés.
-
-**Precisión funcional aún necesaria:** determinar si el bloqueo comienza únicamente al registrar/enviar la reserva pendiente o también al agregar habitaciones mientras se arma el bloque. Si se requiere retención previa, definir su duración y cómo liberar selecciones abandonadas; no asumir que una búsqueda equivale a una reserva pendiente.
-
-**Precisiones del voucher:** el voucher se recibe por la web o WhatsApp del personal. Se propone conservar el cupo mientras un comprobante oportuno está por revisar, sin confirmar automáticamente. Se permite pago total o adelanto sin monto mínimo; el personal puede aprobar cualquier monto. Falta definir si se permite reenvío después de un rechazo y con qué plazo. Los plazos se interpretan desde la creación de la reserva, según fecha de llegada y zona horaria del hotel.
-
-**Propuestas iniciales para el resto de la V1 (no confirmaciones adicionales del usuario):**
-
-- Bloques de distintos tipos con fechas comunes y confirmación/cancelación completa.
-- Asignación física en V1, reorganizable con validación de disponibilidad y viabilidad de las estancias.
-- Conservación del precio registrado al enviar la solicitud.
-- Nombre, email y teléfono del huésped obligatorios, sin documento de identidad.
-- Pendiente a confirmada tras revisión, cancelada o vencida; confirmada a cancelada; sin reabrir canceladas ni vencidas directamente.
-- Sin edición de fechas, tipos o huéspedes después del envío en el flujo inicial.
-- Recepción gestiona reservas; administrador también gestiona catálogo, tarifas y configuración. Sin interfaz de permisos configurables.
-- Zona horaria `America/Lima`; datos reales, textos, servicios, imágenes y contacto se completarán antes de publicar.
-
-El documento de referencia disponible y actualizado es `docs/alcance-v1.md`; no se crea un documento duplicado `docs/alcance.md`.
 
 ### Referencias técnicas
 
